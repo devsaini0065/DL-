@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Dev Saini | 1st Year B.Tech CSE Student - JECRC University | DC Universe Edition</title>
+  <meta name="title" content="Dev Saini | 1st Year B.Tech CSE Student - JECRC University">
+  <meta name="description" content="Personal portfolio of Dev Saini, 1st Year B.Tech Computer Science & Engineering student at JECRC University, Jaipur. DC Universe Gotham & Wayne Tech Edition.">
+  <meta name="author" content="Dev Saini">
+  <meta name="keywords" content="Dev Saini, JECRC University, B.Tech CSE, DC Universe, Batman, Green Lantern, Web Development, C, C++, Jaipur">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dev Saini | 1st Year B.Tech CSE Student - DC Universe Theme">
+  <meta property="og:description" content="Personal portfolio of Dev Saini, 1st Year B.Tech CSE Student at JECRC University, Jaipur. Gotham & Wayne Tech Edition.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dc-theme">
+
+  <!-- =========================================================================
+       GREEN LANTERN ARROW CONSTRUCT CANVAS (Section Transition Animation)
+       ========================================================================= -->
+  <canvas id="glArrowCanvas" class="gl-arrow-canvas" aria-hidden="true"></canvas>
+
+  <!-- Green Lantern Construct Ring HUD Notification -->
+  <div id="glConstructHud" class="gl-hud-beacon" aria-hidden="true">
+    <div class="gl-ring-core">
+      <svg viewBox="0 0 100 100" class="gl-ring-svg">
+        <circle cx="50" cy="50" r="44" stroke="#00ff88" stroke-width="4" fill="none" opacity="0.8" />
+        <circle cx="50" cy="50" r="28" stroke="#00ff88" stroke-width="3" fill="none" />
+        <line x1="14" y1="28" x2="86" y2="28" stroke="#00ff88" stroke-width="5" stroke-linecap="round" />
+        <line x1="14" y1="72" x2="86" y2="72" stroke="#00ff88" stroke-width="5" stroke-linecap="round" />
+        <circle cx="50" cy="50" r="14" fill="#00ff88" />
+      </svg>
+    </div>
+    <span class="gl-hud-text">CONSTRUCT ARROW IN TRANSIT</span>
+  </div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (Wayne Tech / Justice League Tactical Sticky Header)
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Dev Saini Home">
+        <!-- Bat-Emblem Icon -->
+        <span class="bat-logo-icon">
+          <svg viewBox="0 0 100 60" class="bat-svg" aria-hidden="true">
+            <path d="M50 20 C52 14 55 10 58 10 C57 14 58 17 62 20 C72 15 88 18 96 32 C88 32 82 36 78 44 C70 42 62 48 58 56 C54 52 50 49 50 49 C50 49 46 52 42 56 C38 48 30 42 22 44 C18 36 12 32 4 32 C12 18 28 15 38 20 C42 17 43 14 42 10 C45 10 48 14 50 20 Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo-symbol">&lt;</span>Dev<span class="logo-accent">.Saini</span><span class="logo-symbol"> /&gt;</span>
+        <span class="wayne-tag">WAYNE TECH</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link" data-section="about">About Me</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link" data-section="education">Education</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+          <li class="nav-item"><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Action Controls -->
+      <div class="nav-actions">
+        <!-- Wayne Tech Audio / Sound Effects Toggle -->
+        <button id="soundToggle" class="dc-ctrl-btn sound-toggle-btn" aria-label="Toggle sound effects" title="Wayne Tech Audio SFX (Click to Toggle)">
+          <i class="fa-solid fa-volume-high sound-icon-on"></i>
+          <i class="fa-solid fa-volume-xmark sound-icon-off" style="display: none;"></i>
+          <span class="sound-wave-bars">
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+          </span>
+          <span class="btn-label-text">SFX: ON</span>
+        </button>
+
+        <!-- Theme Toggle Button (Gotham Night / Wayne Tech Day) -->
+        <button id="themeToggle" class="dc-ctrl-btn theme-toggle-btn" aria-label="Toggle theme" title="Toggle Theme (Gotham / Metropolis)">
+          <i class="fa-solid fa-moon theme-icon-dark"></i>
+          <i class="fa-solid fa-sun theme-icon-light"></i>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Backdrop -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main>
+    <!-- =========================================================================
+         1. HERO / HOME SECTION (Batman Perched Over Gotham in Background + Bat-Signal)
+         ========================================================================= -->
+    <section class="hero-section" id="home">
+      <!-- Batman Hero Background Overlay & Gotham Atmosphere -->
+      <div class="batman-bg-layer" aria-hidden="true"></div>
+      <div class="gotham-rain-layer" aria-hidden="true"></div>
+      
+      <!-- Bat-Signal Volumetric Light Beam Animation -->
+      <div class="bat-signal-beam" aria-hidden="true">
+        <div class="signal-glow"></div>
+        <div class="signal-emblem">
+          <svg viewBox="0 0 100 60" class="signal-bat-svg">
+            <path d="M50 20 C52 14 55 10 58 10 C57 14 58 17 62 20 C72 15 88 18 96 32 C88 32 82 36 78 44 C70 42 62 48 58 56 C54 52 50 49 50 49 C50 49 46 52 42 56 C38 48 30 42 22 44 C18 36 12 32 4 32 C12 18 28 15 38 20 C42 17 43 14 42 10 C45 10 48 14 50 20 Z" fill="#000"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Tactical Wayne Tech Coordinates HUD -->
+      <div class="wayne-hud-coords">
+        <span><i class="fa-solid fa-crosshairs"></i> GOTHAM SECTOR 04 // 42° 21' 30" N, 71° 03' 35" W</span>
+        <span>WAYNE ENTERPRISES NETWORK // SECURE UPLINK</span>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Student Badge with Bat-insignia -->
+          <div class="hero-badge dc-badge">
+            <span class="badge-dot-bat"></span>
+            <span>1st Year B.Tech CSE Student &bull; JECRC University</span>
+          </div>
+
+          <!-- Name -->
+          <h1 class="hero-title dc-title">
+            Dev Saini
+          </h1>
+
+          <!-- Headline -->
+          <h2 class="hero-headline dc-headline">
+            1st Year B.Tech CSE Student <span class="divider-slash">|</span> Technology &amp; Web Development Enthusiast
+          </h2>
+
+          <!-- Introduction -->
+          <p class="hero-intro dc-intro">
+            I am a first-year Computer Science &amp; Engineering student at JECRC University, Jaipur, passionate about learning programming, web development and new technologies.
+          </p>
+
+          <!-- Action Buttons (Trigger Green Lantern Arrow Transition & Sound) -->
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary btn-wayne gl-trigger" data-target="projects">
+              <span class="btn-gl-glow"></span>
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>View My Projects</span>
+              <i class="fa-solid fa-arrow-down arrow-indicator"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary btn-wayne-secondary gl-trigger" data-target="contact">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+
+          <!-- Social Links (GitHub and LinkedIn) -->
+          <div class="hero-socials">
+            <span class="socials-label">Connect with me:</span>
+            <!-- GitHub Link -->
+            <a href="https://github.com/devsaini0065" target="_blank" rel="noopener noreferrer" class="social-icon-link dc-social-link" aria-label="Dev Saini on GitHub" title="GitHub - devsaini0065">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <!-- LinkedIn Link -->
+            <a href="https://www.linkedin.com/in/dev-saini-a9144242b" target="_blank" rel="noopener noreferrer" class="social-icon-link dc-social-link" aria-label="Dev Saini on LinkedIn" title="LinkedIn - Dev Saini">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Batcomputer / Wayne Tech Terminal Card -->
+        <div class="hero-card-wrapper">
+          <div class="terminal-card batcomputer-card">
+            <div class="terminal-header bat-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title-wrap">
+                <i class="fa-solid fa-terminal text-cyan"></i>
+                <span class="terminal-title">WAYNE_OS // dev_saini.cpp</span>
+              </div>
+              <span class="bat-badge-mini">BATCH '26</span>
+            </div>
+            <div class="terminal-body">
+              <pre><code><span class="code-comment">// Batcomputer Subroutine: Student Profile</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;iostream&gt;</span>
+
+<span class="code-keyword">int</span> <span class="code-func">main</span>() {
+    <span class="code-keyword">const char*</span> name = <span class="code-string">"Dev Saini"</span>;
+    <span class="code-keyword">const char*</span> university = <span class="code-string">"JECRC University, Jaipur"</span>;
+    <span class="code-keyword">const char*</span> branch = <span class="code-string">"B.Tech CSE (1st Year)"</span>;
+    
+    std::cout &lt;&lt; <span class="code-string">"Learning, Building &amp; Growing!\n"</span>;
+    <span class="code-keyword">return</span> <span class="code-num">0</span>;
+}</code></pre>
+            </div>
+            <div class="terminal-footer bat-footer">
+              <div class="status-indicator">
+                <span class="pulse-dot-green"></span>
+                <span>Green Lantern Willpower Active &bull; Exploring C/C++ &amp; Web</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Green Lantern Downward Transition Construct Beacon -->
+      <a href="#about" class="gl-scroll-indicator gl-trigger" data-target="about" aria-label="Scroll to About Me Section">
+        <span class="gl-arrow-ring">
+          <svg viewBox="0 0 40 40" class="gl-beacon-svg">
+            <polygon points="20,28 10,14 30,14" fill="#00ff88" />
+          </svg>
+        </span>
+        <span class="gl-scroll-label">INITIALIZE CONSTRUCT // SCROLL DOWN</span>
+      </a>
+    </section>
+
+    <!-- =========================================================================
+         2. ABOUT ME SECTION (Two-Column Layout: Left Graphic / Right Content & Cards)
+         ========================================================================= -->
+    <section class="about-section section-padding" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag dc-tag"><i class="fa-solid fa-address-card"></i> DOSSIER // CLASSIFIED INTEL</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-line dc-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Side: Professional Student/Developer Illustration (No fake photos) -->
+          <div class="about-visual">
+            <div class="illustration-card bat-card">
+              <div class="card-corner tl"></div>
+              <div class="card-corner tr"></div>
+              <div class="card-corner bl"></div>
+              <div class="card-corner br"></div>
+
+              <div class="illustration-art">
+                <svg viewBox="0 0 400 320" class="dev-svg-illustration" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Student Developer Illustration at Workstation">
+                  <defs>
+                    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#050811" />
+                      <stop offset="100%" stop-color="#0f172a" />
+                    </linearGradient>
+                    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00ff88" />
+                      <stop offset="100%" stop-color="#38bdf8" />
+                    </linearGradient>
+                    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00ff88" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Background Soft Glow -->
+                  <circle cx="200" cy="150" r="130" fill="url(#glowGrad)" />
+
+                  <!-- Desk Surface -->
+                  <path d="M40 270 L360 270" stroke="#334155" stroke-width="4" stroke-linecap="round" />
+                  <path d="M80 272 L60 310" stroke="#1e293b" stroke-width="5" stroke-linecap="round" />
+                  <path d="M320 272 L340 310" stroke="#1e293b" stroke-width="5" stroke-linecap="round" />
+
+                  <!-- Laptop Screen Base with Wayne Tech Branding -->
+                  <rect x="110" y="90" width="180" height="120" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+                  <!-- Screen Display -->
+                  <rect x="120" y="100" width="160" height="100" rx="4" fill="url(#screenGrad)" />
+                  <!-- Screen Code Lines -->
+                  <line x1="130" y1="115" x2="190" y2="115" stroke="#00ff88" stroke-width="3" stroke-linecap="round" />
+                  <line x1="130" y1="128" x2="220" y2="128" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" />
+                  <line x1="145" y1="141" x2="250" y2="141" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" />
+                  <line x1="145" y1="154" x2="210" y2="154" stroke="#f472b6" stroke-width="3" stroke-linecap="round" />
+                  <line x1="130" y1="167" x2="180" y2="167" stroke="#00ff88" stroke-width="3" stroke-linecap="round" />
+
+                  <!-- Laptop Hinge & Keyboard Base -->
+                  <polygon points="90,240 310,240 290,210 110,210" fill="#334155" stroke="#475569" stroke-width="2" />
+                  <rect x="160" y="228" width="80" height="6" rx="2" fill="#64748b" />
+
+                  <!-- Coffee Mug with Bat Logo Accent -->
+                  <rect x="65" y="225" width="22" height="28" rx="4" fill="#0284c7" />
+                  <path d="M87 232 C93 232 93 242 87 245" stroke="#0284c7" stroke-width="3" fill="none" stroke-linecap="round" />
+                  <!-- Steam -->
+                  <path d="M72 218 Q75 212 72 206" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+                  <path d="M79 216 Q82 210 79 204" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+                  <!-- Stack of Books / Notebooks -->
+                  <rect x="305" y="240" width="45" height="10" rx="2" fill="#6366f1" />
+                  <rect x="310" y="230" width="40" height="10" rx="2" fill="#38bdf8" />
+                  <rect x="312" y="220" width="38" height="10" rx="2" fill="#00ff88" />
+
+                  <!-- Floating Tech Badges (Green Lantern Energy Style) -->
+                  <g class="float-badge badge-c">
+                    <rect x="50" y="100" width="44" height="26" rx="6" fill="#0b1120" stroke="#00ff88" stroke-width="1.5"/>
+                    <text x="72" y="118" font-family="'Fira Code', monospace" font-size="12" font-weight="bold" fill="#00ff88" text-anchor="middle">C</text>
+                  </g>
+                  <g class="float-badge badge-cpp">
+                    <rect x="305" y="100" width="52" height="26" rx="6" fill="#0b1120" stroke="#38bdf8" stroke-width="1.5"/>
+                    <text x="331" y="118" font-family="'Fira Code', monospace" font-size="12" font-weight="bold" fill="#38bdf8" text-anchor="middle">C++</text>
+                  </g>
+                  <g class="float-badge badge-web">
+                    <rect x="160" y="45" width="80" height="26" rx="6" fill="#0b1120" stroke="#fbbf24" stroke-width="1.5"/>
+                    <text x="200" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#fbbf24" text-anchor="middle">Web Dev</text>
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Profile Quick Highlights with Batcomputer Avatar -->
+              <div class="illustration-meta dc-meta">
+                <div class="meta-avatar dc-avatar">
+                  <i class="fa-solid fa-user-graduate"></i>
+                </div>
+                <div class="meta-details">
+                  <div class="meta-name">Dev Saini</div>
+                  <div class="meta-title">1st Year B.Tech CSE &bull; JECRC University</div>
+                </div>
+              </div>
+
+              <!-- Student Status Pill -->
+              <div class="focus-pill dc-focus-pill">
+                <i class="fa-solid fa-bolt text-green"></i>
+                <span>Focus: C/C++, Problem Solving &amp; Web Development</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Exact Content & Structured Information Cards -->
+          <div class="about-content">
+            <h3 class="about-subheading dc-subheading">About Me</h3>
+
+            <div class="about-paragraphs">
+              <p>
+                Hi, I'm <strong>Dev Saini</strong>, a first-year B.Tech Computer Science &amp; Engineering student at <strong>JECRC University, Jaipur</strong>. I completed my Class 10 and Class 12 from <strong>HVN School</strong>.
+              </p>
+              <p>
+                I am interested in technology, programming and web development. Currently, I am learning <strong>C and C++</strong> to strengthen my programming fundamentals and improve my problem-solving skills.
+              </p>
+              <p>
+                I am also exploring web development by creating practical projects such as my <strong>personal portfolio website</strong> and a <strong>running website</strong>.
+              </p>
+              <p>
+                Along with technical skills, I am working on improving my communication, teamwork and presentation skills. My goal is to continuously learn new technologies, build useful projects and grow as a Computer Science student.
+              </p>
+            </div>
+
+            <!-- Small Information Cards (6 Required Cards) -->
+            <div class="info-cards-grid">
+              <div class="info-card dc-info-card">
+                <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+                <div class="info-text">
+                  <span class="info-label">Name</span>
+                  <span class="info-value">Dev Saini</span>
+                </div>
+              </div>
+
+              <div class="info-card dc-info-card">
+                <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="info-text">
+                  <span class="info-label">Course</span>
+                  <span class="info-value">B.Tech CSE</span>
+                </div>
+              </div>
+
+              <div class="info-card dc-info-card">
+                <div class="info-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="info-text">
+                  <span class="info-label">Year</span>
+                  <span class="info-value">1st Year</span>
+                </div>
+              </div>
+
+              <div class="info-card dc-info-card">
+                <div class="info-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="info-text">
+                  <span class="info-label">University</span>
+                  <span class="info-value">JECRC University</span>
+                </div>
+              </div>
+
+              <div class="info-card dc-info-card">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="info-text">
+                  <span class="info-label">Location</span>
+                  <span class="info-value">Jaipur, Rajasthan, India</span>
+                </div>
+              </div>
+
+              <div class="info-card dc-info-card">
+                <div class="info-icon"><i class="fa-solid fa-school"></i></div>
+                <div class="info-text">
+                  <span class="info-label">School</span>
+                  <span class="info-value">HVN School</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. EDUCATION SECTION (Modern Interactive Timeline - Wayne Tech Archives)
+         ========================================================================= -->
+    <section class="education-section section-padding" id="education">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag dc-tag"><i class="fa-solid fa-graduation-cap"></i> ACADEMIC JOURNEY // ARCHIVES</span>
+          <h2 class="section-title">Education</h2>
+          <div class="section-line dc-line"></div>
+          <p class="section-subtitle">My academic foundation and current university studies in Computer Science.</p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-track dc-timeline-track"></div>
+
+          <!-- B.Tech Card (Current) -->
+          <div class="timeline-item">
+            <div class="timeline-dot current dc-dot-bat">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-card current-academic dc-card">
+              <div class="card-corner tl"></div>
+              <div class="card-corner tr"></div>
+              <div class="timeline-badge-tag current dc-badge-current">Currently Pursuing &bull; 1st Year</div>
+              <h3 class="timeline-degree">B.Tech – Computer Science &amp; Engineering</h3>
+              <div class="timeline-institution">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>JECRC University</span>
+              </div>
+              <div class="timeline-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Jaipur, Rajasthan, India</span>
+                <span><i class="fa-solid fa-clock"></i> Status: 1st Year</span>
+              </div>
+              <div class="timeline-focus dc-focus-highlight">
+                <strong>Focus:</strong> Programming, Computer Science fundamentals and Web Development
+              </div>
+            </div>
+          </div>
+
+          <!-- Class 12 Card -->
+          <div class="timeline-item">
+            <div class="timeline-dot dc-dot-node">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="timeline-card dc-card">
+              <div class="timeline-badge-tag completed dc-badge-completed">Completed</div>
+              <h3 class="timeline-degree">Class 12</h3>
+              <div class="timeline-institution">
+                <i class="fa-solid fa-school"></i>
+                <span>HVN School</span>
+              </div>
+              <div class="timeline-meta">
+                <span><i class="fa-solid fa-award"></i> Qualification: Class 12</span>
+              </div>
+              <p class="timeline-desc">Senior secondary schooling with strong focus on science and foundational mathematics.</p>
+            </div>
+          </div>
+
+          <!-- Class 10 Card -->
+          <div class="timeline-item">
+            <div class="timeline-dot dc-dot-node">
+              <i class="fa-solid fa-school-flag"></i>
+            </div>
+            <div class="timeline-card dc-card">
+              <div class="timeline-badge-tag completed dc-badge-completed">Completed</div>
+              <h3 class="timeline-degree">Class 10</h3>
+              <div class="timeline-institution">
+                <i class="fa-solid fa-school"></i>
+                <span>HVN School</span>
+              </div>
+              <div class="timeline-meta">
+                <span><i class="fa-solid fa-award"></i> Qualification: Class 10</span>
+              </div>
+              <p class="timeline-desc">Secondary schooling establishing primary academic discipline and core analytical skills.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. SKILLS SECTION (Programming & Other Skills - Realistic & Developing)
+         ========================================================================= -->
+    <section class="skills-section section-padding" id="skills">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag dc-tag"><i class="fa-solid fa-ring"></i> WILLPOWER &amp; CAPABILITIES</span>
+          <h2 class="section-title">Skills</h2>
+          <div class="section-line dc-line"></div>
+          <p class="section-subtitle">Core technical fundamentals currently in active development, alongside essential soft skills.</p>
+        </div>
+
+        <!-- Programming Skills Category -->
+        <div class="skills-category-wrapper dc-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner tr"></div>
+          <div class="category-heading">
+            <div class="category-icon dc-cat-icon"><i class="fa-solid fa-code"></i></div>
+            <div>
+              <h3 class="category-title">Programming Skills</h3>
+              <p class="category-note">
+                <i class="fa-solid fa-circle-info text-cyan"></i> Currently learning and developing programming fundamentals through structured coursework and practice.
+              </p>
+            </div>
+          </div>
+
+          <div class="skills-grid programming-grid">
+            <!-- C Language Card -->
+            <div class="skill-card tech-card dc-skill-card">
+              <div class="skill-header">
+                <div class="skill-icon c-icon dc-c-icon">
+                  <span>C</span>
+                </div>
+                <div class="skill-info">
+                  <h4 class="skill-name">C Programming</h4>
+                  <span class="skill-status-tag learning dc-tag-learning">Currently Learning</span>
+                </div>
+              </div>
+              <p class="skill-desc">
+                Building a rock-solid foundation in structured programming, memory concepts, control structures, and algorithmic logic.
+              </p>
+              <div class="skill-focus-topics">
+                <span class="topic-tag dc-topic-tag">Syntax &amp; Data Types</span>
+                <span class="topic-tag dc-topic-tag">Conditionals &amp; Loops</span>
+                <span class="topic-tag dc-topic-tag">Functions &amp; Logic</span>
+              </div>
+            </div>
+
+            <!-- C++ Language Card -->
+            <div class="skill-card tech-card dc-skill-card">
+              <div class="skill-header">
+                <div class="skill-icon cpp-icon dc-cpp-icon">
+                  <span>C++</span>
+                </div>
+                <div class="skill-info">
+                  <h4 class="skill-name">C++ Programming</h4>
+                  <span class="skill-status-tag learning dc-tag-learning">Currently Learning</span>
+                </div>
+              </div>
+              <p class="skill-desc">
+                Exploring object-oriented principles, modular problem-solving, and efficient coding practices for computational tasks.
+              </p>
+              <div class="skill-focus-topics">
+                <span class="topic-tag dc-topic-tag">OOP Concepts</span>
+                <span class="topic-tag dc-topic-tag">Problem Solving</span>
+                <span class="topic-tag dc-topic-tag">Standard Library Basics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Skills Category -->
+        <div class="skills-category-wrapper mt-5 dc-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner tr"></div>
+          <div class="category-heading">
+            <div class="category-icon dc-cat-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <h3 class="category-title">Other Skills</h3>
+              <p class="category-note">
+                <i class="fa-solid fa-check-circle text-green"></i> Practical web technologies and essential interpersonal capabilities for collaborative engineering.
+              </p>
+            </div>
+          </div>
+
+          <div class="skills-grid other-skills-grid">
+            <!-- Web Development -->
+            <div class="skill-card">
+              <div class="skill-card-inner dc-skill-inner">
+                <div class="other-icon dc-icon-gl"><i class="fa-solid fa-globe"></i></div>
+                <h4 class="other-skill-title">Web Development</h4>
+                <span class="skill-stage-badge dc-stage-gl">Hands-on Projects</span>
+                <p class="other-skill-desc">Exploring modern HTML5, CSS3 styling, and JavaScript interactivity by building functional web interfaces.</p>
+              </div>
+            </div>
+
+            <!-- Communication -->
+            <div class="skill-card">
+              <div class="skill-card-inner dc-skill-inner">
+                <div class="other-icon dc-icon-gl"><i class="fa-solid fa-comments"></i></div>
+                <h4 class="other-skill-title">Communication</h4>
+                <span class="skill-stage-badge dc-stage-gl">Active Growth</span>
+                <p class="other-skill-desc">Expressing technical ideas clearly and listening actively in academic and project discussions.</p>
+              </div>
+            </div>
+
+            <!-- Teamwork -->
+            <div class="skill-card">
+              <div class="skill-card-inner dc-skill-inner">
+                <div class="other-icon dc-icon-gl"><i class="fa-solid fa-people-group"></i></div>
+                <h4 class="other-skill-title">Teamwork</h4>
+                <span class="skill-stage-badge dc-stage-gl">Collaborative</span>
+                <p class="other-skill-desc">Working cooperatively with peers on group assignments, sharing responsibilities and brainstorming solutions.</p>
+              </div>
+            </div>
+
+            <!-- Presentation -->
+            <div class="skill-card">
+              <div class="skill-card-inner dc-skill-inner">
+                <div class="other-icon dc-icon-gl"><i class="fa-solid fa-chart-pie"></i></div>
+                <h4 class="other-skill-title">Presentation</h4>
+                <span class="skill-stage-badge dc-stage-gl">Developing</span>
+                <p class="other-skill-desc">Organizing structured slides and delivering clear spoken explanations for academic topics and projects.</p>
+              </div>
+            </div>
+
+            <!-- Problem Solving -->
+            <div class="skill-card">
+              <div class="skill-card-inner dc-skill-inner">
+                <div class="other-icon dc-icon-gl"><i class="fa-solid fa-lightbulb"></i></div>
+                <h4 class="other-skill-title">Problem Solving</h4>
+                <span class="skill-stage-badge dc-stage-gl">Foundational</span>
+                <p class="other-skill-desc">Approaching programming challenges analytically, breaking down problems into logical steps.</p>
+              </div>
+            </div>
+
+            <!-- Learning & Adaptability -->
+            <div class="skill-card">
+              <div class="skill-card-inner dc-skill-inner">
+                <div class="other-icon dc-icon-gl"><i class="fa-solid fa-arrows-rotate"></i></div>
+                <h4 class="other-skill-title">Learning &amp; Adaptability</h4>
+                <span class="skill-stage-badge dc-stage-gl">Continuous</span>
+                <p class="other-skill-desc">Curious mindset eager to learn emerging technologies, new developer tools, and best practices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. PROJECTS SECTION (Clean Modern Project Cards - Wayne Tech Prototypes)
+         ========================================================================= -->
+    <section class="projects-section section-padding" id="projects">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag dc-tag"><i class="fa-solid fa-laptop-code"></i> WAYNE TECH LAB // PROTOTYPES</span>
+          <h2 class="section-title">Projects</h2>
+          <div class="section-line dc-line"></div>
+          <p class="section-subtitle">Real web development projects created to apply concepts and practice hands-on building.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Personal Portfolio Website -->
+          <div class="project-card dc-card">
+            <div class="card-corner tl"></div>
+            <div class="card-corner tr"></div>
+            <div class="project-header-visual bat-project-visual">
+              <div class="project-preview-mockup">
+                <div class="mockup-bar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="mockup-url">wayne-enterprises.internal/portfolio</span>
+                </div>
+                <div class="mockup-content">
+                  <i class="fa-solid fa-id-badge mockup-icon text-cyan"></i>
+                  <span>Dev Saini &bull; Personal Portfolio</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-type-tag dc-project-tag">Web Development</div>
+              <h3 class="project-title">Personal Portfolio Website</h3>
+              <p class="project-description">
+                Created a personal portfolio website to showcase my education, skills, projects and achievements.
+              </p>
+
+              <div class="project-focus-box dc-focus-box">
+                <strong>Focus:</strong> Responsive design and modern UI.
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag dc-tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+                <span class="tech-tag dc-tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                <span class="tech-tag dc-tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <!-- NOTE FOR DEV: You can replace the href below with your live project demo URL or repository URL -->
+              <div class="project-actions">
+                <a href="#home" class="btn btn-outline-primary btn-sm dc-btn-gl gl-trigger" data-target="home" title="View Current Website Demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span>View Project</span>
+                </a>
+                <a href="https://github.com/devsaini0065" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm dc-btn-secondary" title="GitHub Profile / Repository">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Running Website -->
+          <div class="project-card dc-card">
+            <div class="card-corner tl"></div>
+            <div class="card-corner tr"></div>
+            <div class="project-header-visual running-project-theme bat-project-visual">
+              <div class="project-preview-mockup">
+                <div class="mockup-bar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="mockup-url">running-project.local</span>
+                </div>
+                <div class="mockup-content">
+                  <i class="fa-solid fa-person-running mockup-icon text-cyan"></i>
+                  <span>Running Club &amp; Tracker Web Project</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-type-tag dc-project-tag">Web Development</div>
+              <h3 class="project-title">Running Website</h3>
+              <p class="project-description">
+                Created a running-related website as a practical web development project.
+              </p>
+
+              <div class="project-focus-box dc-focus-box">
+                <strong>Focus:</strong> Website structure, design and user-friendly interface.
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag dc-tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+                <span class="tech-tag dc-tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                <span class="tech-tag dc-tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <!-- NOTE FOR DEV: Replace the href below with your actual Running Website repo or live link when uploaded -->
+              <div class="project-actions">
+                <button type="button" class="btn btn-outline-primary btn-sm dc-btn-gl btn-project-demo" data-project="Running Website" title="View Project Information">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span>View Project</span>
+                </button>
+                <a href="https://github.com/devsaini0065" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm dc-btn-secondary" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. ACHIEVEMENTS / GROWTH SECTION (Authentic Milestones of a 1st Year Student)
+         ========================================================================= -->
+    <section class="achievements-section section-padding" id="achievements">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag dc-tag"><i class="fa-solid fa-medal"></i> MILESTONES // CADET ADVANCEMENT</span>
+          <h2 class="section-title">Achievements</h2>
+          <div class="section-line dc-line"></div>
+          <p class="section-subtitle">Key developmental milestones and growth achieved during my first year as a Computer Science student.</p>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- Achievement 1 -->
+          <div class="achievement-card dc-card">
+            <div class="achievement-icon-wrap dc-achieve-icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-title">Improved communication skills</h3>
+              <p class="achievement-text">Actively engaging in classroom discussions, peer reviews, and technical interactions with faculty and classmates.</p>
+            </div>
+            <div class="achievement-tag dc-achieve-tag"><i class="fa-solid fa-arrow-trend-up"></i> Growth Milestone</div>
+          </div>
+
+          <!-- Achievement 2 -->
+          <div class="achievement-card dc-card">
+            <div class="achievement-icon-wrap dc-achieve-icon">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-title">Improved teamwork skills</h3>
+              <p class="achievement-text">Successfully collaborating on student team activities and assignments with effective task coordination.</p>
+            </div>
+            <div class="achievement-tag dc-achieve-tag"><i class="fa-solid fa-arrow-trend-up"></i> Growth Milestone</div>
+          </div>
+
+          <!-- Achievement 3 -->
+          <div class="achievement-card dc-card">
+            <div class="achievement-icon-wrap dc-achieve-icon">
+              <i class="fa-solid fa-person-chalkboard"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-title">Improved presentation skills</h3>
+              <p class="achievement-text">Confidently preparing and presenting technical topics and project outlines with structured visual aids.</p>
+            </div>
+            <div class="achievement-tag dc-achieve-tag"><i class="fa-solid fa-arrow-trend-up"></i> Growth Milestone</div>
+          </div>
+
+          <!-- Achievement 4 -->
+          <div class="achievement-card dc-card">
+            <div class="achievement-icon-wrap dc-achieve-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-title">Developing programming skills in C and C++</h3>
+              <p class="achievement-text">Strengthening computational problem-solving, mastering foundational syntax, data structures, and algorithms.</p>
+            </div>
+            <div class="achievement-tag dc-achieve-tag"><i class="fa-solid fa-code"></i> Technical Milestone</div>
+          </div>
+
+          <!-- Achievement 5 -->
+          <div class="achievement-card dc-card">
+            <div class="achievement-icon-wrap dc-achieve-icon">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-title">Building practical web development projects</h3>
+              <p class="achievement-text">Applying front-end concepts into real websites, including personal portfolio and running web applications.</p>
+            </div>
+            <div class="achievement-tag dc-achieve-tag"><i class="fa-solid fa-globe"></i> Project Milestone</div>
+          </div>
+
+          <!-- Achievement 6 -->
+          <div class="achievement-card dc-card">
+            <div class="achievement-icon-wrap dc-achieve-icon">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="achievement-content">
+              <h3 class="achievement-title">Continuously learning new technologies</h3>
+              <p class="achievement-text">Cultivating a persistent learning habit to stay updated with computer science advancements and developer tools.</p>
+            </div>
+            <div class="achievement-tag dc-achieve-tag"><i class="fa-solid fa-bolt"></i> Learning Habit</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. CONTACT SECTION (Details, Verified Profiles & Accessible Form)
+         ========================================================================= -->
+    <section class="contact-section section-padding" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag dc-tag"><i class="fa-solid fa-satellite-dish"></i> SECURE COMMS // TRANSMISSION</span>
+          <h2 class="section-title">Contact</h2>
+          <div class="section-line dc-line"></div>
+          <p class="section-subtitle">Feel free to connect for academic collaboration, project discussions, or tech conversations.</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- Contact Details & Profile Cards -->
+          <div class="contact-info-panel">
+            <div class="student-profile-card dc-card">
+              <div class="card-corner tl"></div>
+              <div class="card-corner tr"></div>
+              <div class="student-avatar-badge dc-avatar-bat">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <div class="student-profile-info">
+                <h3 class="student-name">Dev Saini</h3>
+                <p class="student-role">B.Tech CSE Student</p>
+                <p class="student-uni"><i class="fa-solid fa-building-columns"></i> JECRC University</p>
+                <p class="student-loc"><i class="fa-solid fa-location-dot"></i> Jaipur, Rajasthan, India</p>
+              </div>
+            </div>
+
+            <!-- Social Links List -->
+            <div class="contact-social-links">
+              <!-- LinkedIn Link -->
+              <a href="https://www.linkedin.com/in/dev-saini-a9144242b" target="_blank" rel="noopener noreferrer" class="contact-card-link linkedin-card dc-card">
+                <div class="link-icon dc-linkedin-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div class="link-details">
+                  <span class="link-heading">LinkedIn</span>
+                  <span class="link-text">Dev Saini – JECRC University – Jaipur, Rajasthan, India | LinkedIn</span>
+                </div>
+                <div class="link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+              </a>
+
+              <!-- GitHub Link -->
+              <a href="https://github.com/devsaini0065" target="_blank" rel="noopener noreferrer" class="contact-card-link github-card dc-card">
+                <div class="link-icon dc-github-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="link-details">
+                  <span class="link-heading">GitHub</span>
+                  <span class="link-text">GitHub – devsaini0065</span>
+                </div>
+                <div class="link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+              </a>
+            </div>
+
+            <!-- Direct Connection Tip -->
+            <div class="contact-tip-box dc-tip-box">
+              <i class="fa-solid fa-shield-halved text-cyan"></i>
+              <span>Wayne Tech Comms Link: Open to learning opportunities, peer collaboration, and technical discussions.</span>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-panel">
+            <div class="form-card dc-card">
+              <div class="card-corner tl"></div>
+              <div class="card-corner tr"></div>
+              <h3 class="form-title">Send a Message</h3>
+              <p class="form-subtitle">Have a question or want to say hello? Send a transmission below.</p>
+
+              <!-- Client-side handled contact form -->
+              <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="userName">Name <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="userName" name="name" class="form-input dc-input" placeholder="Your Full Name" required>
+                  </div>
+                  <span class="form-error-msg" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="userEmail">Email <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="userEmail" name="email" class="form-input dc-input" placeholder="your.email@example.com" required>
+                  </div>
+                  <span class="form-error-msg" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="userMessage">Message <span class="required">*</span></label>
+                  <div class="input-with-icon textarea-icon">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <textarea id="userMessage" name="message" class="form-input dc-input" rows="4" placeholder="Write your message here..." required></textarea>
+                  </div>
+                  <span class="form-error-msg" id="messageError"></span>
+                </div>
+
+                <!-- Backend configuration transparency notice -->
+                <p class="form-notice dc-form-notice">
+                  <i class="fa-solid fa-shield-halved text-cyan"></i> Note: This portfolio is currently running as a static frontend. Submitting simulates message packaging with direct options to email or message Dev.
+                </p>
+
+                <button type="submit" class="btn btn-primary btn-block btn-wayne" id="submitBtn">
+                  <span>Send Message</span>
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </form>
+
+              <!-- Form Submission Feedback Modal / Toast -->
+              <div class="form-feedback" id="formFeedback" style="display: none;">
+                <div class="feedback-icon text-green"><i class="fa-solid fa-circle-check"></i></div>
+                <h4 class="feedback-title">Transmission Received!</h4>
+                <p class="feedback-text" id="feedbackDetails">
+                  Your message has been processed on the client side. Since this is a static frontend website, please feel free to connect directly via LinkedIn or email:
+                </p>
+                <div class="feedback-actions">
+                  <a href="https://www.linkedin.com/in/dev-saini-a9144242b" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-wayne">
+                    <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                  </a>
+                  <button type="button" class="btn btn-secondary btn-sm dc-btn-secondary" id="resetFormBtn">
+                    Send Another Message
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer dc-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <span class="bat-logo-icon-sm">
+              <svg viewBox="0 0 100 60" class="bat-svg" aria-hidden="true">
+                <path d="M50 20 C52 14 55 10 58 10 C57 14 58 17 62 20 C72 15 88 18 96 32 C88 32 82 36 78 44 C70 42 62 48 58 56 C54 52 50 49 50 49 C50 49 46 52 42 56 C38 48 30 42 22 44 C18 36 12 32 4 32 C12 18 28 15 38 20 C42 17 43 14 42 10 C45 10 48 14 50 20 Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="footer-logo">&lt;Dev.Saini /&gt;</span>
+          </div>
+          <p class="footer-tagline">1st Year B.Tech CSE Student &bull; JECRC University, Jaipur</p>
+          <p class="footer-edition"><i class="fa-solid fa-shield-halved text-cyan"></i> Wayne Tech &bull; Green Lantern Construct Edition</p>
+        </div>
+        
+        <div class="footer-links">
+          <a href="#home" class="gl-trigger" data-target="home">Home</a>
+          <a href="#about" class="gl-trigger" data-target="about">About Me</a>
+          <a href="#education" class="gl-trigger" data-target="education">Education</a>
+          <a href="#skills" class="gl-trigger" data-target="skills">Skills</a>
+          <a href="#projects" class="gl-trigger" data-target="projects">Projects</a>
+          <a href="#achievements" class="gl-trigger" data-target="achievements">Achievements</a>
+          <a href="#contact" class="gl-trigger" data-target="contact">Contact</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/devsaini0065" target="_blank" rel="noopener noreferrer" class="footer-social-btn dc-social-link" aria-label="Dev Saini on GitHub" title="GitHub - devsaini0065">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/dev-saini-a9144242b" target="_blank" rel="noopener noreferrer" class="footer-social-btn dc-social-link" aria-label="Dev Saini on LinkedIn" title="LinkedIn - Dev Saini">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 Dev Saini. All Rights Reserved.</p>
+        <p class="footer-subtext">Designed &amp; Built with HTML, CSS, JavaScript &bull; DC Universe Theme</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button with Green Lantern Construct Arrow Boost -->
+  <a href="#home" class="back-to-top gl-trigger dc-back-to-top" id="backToTop" data-target="home" aria-label="Back to top of page" title="Construct Boost to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+    <span class="btn-gl-pulse"></span>
+  </a>
+
+  <!-- Project Info Modal for interactive demo -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card dc-card">
+      <div class="card-corner tl"></div>
+      <div class="card-corner tr"></div>
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+      <div class="modal-badge dc-tag"><i class="fa-solid fa-person-running"></i> Practical Web Project</div>
+      <h3 class="modal-title" id="modalTitle">Running Website</h3>
+      <p class="modal-desc" id="modalDesc">
+        Created a running-related website as a practical web development project. Focused on website structure, design, and a user-friendly interface.
+      </p>
+      <div class="modal-meta dc-modal-meta">
+        <strong>Technologies:</strong> HTML, CSS, JavaScript<br>
+        <strong>Focus:</strong> Clean layout, intuitive navigation, responsive components
+      </div>
+      <div class="modal-actions">
+        <a href="https://github.com/devsaini0065" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-wayne">
+          <i class="fa-brands fa-github"></i> Visit Dev's GitHub
+        </a>
+        <button class="btn btn-secondary btn-sm dc-btn-secondary" id="modalCloseBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
